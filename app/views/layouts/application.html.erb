@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HolaMundo</title>
+  <title>Aplicacion Rails Hola Mundo</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<header>  
+  <%= link_to "Inicio",    root_path %>
+  <%= link_to "Artículos", posts_path %>
+  <%= link_to "Usuarios",  users_path %>
+</header>
+
+  <%= yield %>
 
 </body>
 </html>
