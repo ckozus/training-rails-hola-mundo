@@ -70,10 +70,11 @@ class PostsController < ApplicationController
 
     def set_users
       @users = User.all.order(:last_name, :name)
+      @categories = Category.order(:name).all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :subtitle, :content, :user_id)
+      params.require(:post).permit(:title, :subtitle, :content, :user_id, category_ids: [])
     end
 end

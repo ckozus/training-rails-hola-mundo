@@ -27,6 +27,13 @@
     <%= f.label :user_id, "Autor" %><br>
     <%= f.select :user_id, user_options(@users) %>
   </div>
+  <div class="field">
+    <%= f.label :categories, "Categorias" %><br>
+    <% for category in @categories do %>
+      <%= check_box_tag "post[category_ids][]", category.id, @post.categories.member?(category) %>
+      <%= category.name %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
