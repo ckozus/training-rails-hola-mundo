@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= image_tag "http://i1142.photobucket.com/albums/n617/Conficker_EJ/user-group-icon.png", width: '50px' %>
+
+Listado de Usuarios (<%= @cnt %>)</h1>
+
+<%= Date.today %>
+<br>
+<%= link_to "Noticias", "http://www.lagaceta.com.ar", target: '_blank' %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Edad</th>
+      <th>Email</th>
+      <th>Artículos</th>
+      <th>Anotaciones</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= gravatar(user.email) %></td>
+        <td><%= user.name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.age %></td>
+        <td><%= user.email %></td>
+        <td><%= user.posts.count %></td>
+        <td><%= user.notes %></td>
+        <td><%= link_to 'Ver', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, {method: :delete, data: { confirm: 'Estás seguro de eliminar este usuario?' } } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Usuario', new_user_path %>
