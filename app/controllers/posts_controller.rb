@@ -69,7 +69,7 @@ class PostsController < ApplicationController
     end
 
     def set_users
-      @users = User.all.order(:last_name, :name)
+      @users = User.order(:last_name, :name).all
       @categories = Category.order(:name).all
     end
 
