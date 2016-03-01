@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @cnt   = User.count
-    @users = User.all
+    if ['name', 'last_name', 'age', 'email'].include?(params[:order])
+      @users = User.order(params[:order])
+    else
+      @users = User.order(:name)
+    end
   end
 
   # GET /users/1

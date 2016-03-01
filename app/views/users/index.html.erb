@@ -12,10 +12,10 @@ Listado de Usuarios (<%= @cnt %>)</h1>
   <thead>
     <tr>
       <th>Foto</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Edad</th>
-      <th>Email</th>
+      <th><%= link_to "Nombre", users_path(order: 'name') %></th>
+      <th><%= link_to "Apellido", users_path(order: 'last_name') %></th>
+      <th><%= link_to "Edad", users_path(order: 'age') %></th>
+      <th><%= link_to "Email", users_path(order: 'email') %></th>
       <th>Artículos</th>
       <th>Anotaciones</th>
       <th colspan="3"></th>
