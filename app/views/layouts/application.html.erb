@@ -9,10 +9,22 @@
 <body>
 
 <header>  
+  <% if user_signed_in? %>
+    <p>Hola: <%= current_user.name %></p>
+  <% end %>
   <%= link_to "Inicio",    root_path %>
   <%= link_to "Artículos", posts_path %>
-  <%= link_to "Usuarios",  users_path %>
+  <%= link_to "Usuarios",  admin_users_path %>
   <%= link_to "Categorias",  categories_path %>
+  <% if user_signed_in? %>
+    <%= link_to "Editar Perfil", edit_user_registration_path %>
+    <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Ingresar", new_user_session_path %>
+  <% end %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 </header>
 
   <%= yield %>

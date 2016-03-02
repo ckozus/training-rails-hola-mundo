@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= image_tag "http://i1142.photobucket.com/albums/n617/Conficker_EJ/user-group-icon.png", width: '50px' %>
 
 Listado de Usuarios (<%= @cnt %>)</h1>
@@ -12,10 +10,10 @@ Listado de Usuarios (<%= @cnt %>)</h1>
   <thead>
     <tr>
       <th>Foto</th>
-      <th><%= link_to "Nombre", users_path(order: 'name') %></th>
-      <th><%= link_to "Apellido", users_path(order: 'last_name') %></th>
-      <th><%= link_to "Edad", users_path(order: 'age') %></th>
-      <th><%= link_to "Email", users_path(order: 'email') %></th>
+      <th><%= link_to "Nombre", admin_users_path(order: 'name') %></th>
+      <th><%= link_to "Apellido", admin_users_path(order: 'last_name') %></th>
+      <th><%= link_to "Edad", admin_users_path(order: 'age') %></th>
+      <th><%= link_to "Email", admin_users_path(order: 'email') %></th>
       <th>Artículos</th>
       <th>Anotaciones</th>
       <th colspan="3"></th>
@@ -32,9 +30,9 @@ Listado de Usuarios (<%= @cnt %>)</h1>
         <td><%= user.email %></td>
         <td><%= user.posts.count %></td>
         <td><%= user.notes %></td>
-        <td><%= link_to 'Ver', user %></td>
-        <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Eliminar', user, {method: :delete, data: { confirm: 'Estás seguro de eliminar este usuario?' } } %></td>
+        <td><%= link_to 'Ver', admin_users_path(user) %></td>
+        <td><%= link_to 'Editar', edit_admin_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', admin_users_path(user), {method: :delete, data: { confirm: 'Estás seguro de eliminar este usuario?' } } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +40,4 @@ Listado de Usuarios (<%= @cnt %>)</h1>
 
 <br>
 
-<%= link_to 'Nuevo Usuario', new_user_path %>
+<%= link_to 'Nuevo Usuario', new_admin_user_path %>
